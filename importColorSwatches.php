@@ -17,7 +17,10 @@ $objectManager = \Magento\Framework\App\ObjectManager::getInstance(); // Instanc
 $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
 $connection = $resource->getConnection();
 
-$attribute_d = 204;
+$fileSystem = $objectManager->get('\Magento\Framework\Filesystem');
+$mediaPath = $fileSystem->getDirectoryRead(\Magento\Framework\App\Filesystem\DirectoryList::MEDIA)->getAbsolutePath(). 'catalog/product';
+$swatchMediaPath = $fileSystem->getDirectoryRead(\Magento\Framework\App\Filesystem\DirectoryList::MEDIA)->getAbsolutePath(). 'attribute/swatch';
+
 
 
 //Select Data from table
@@ -33,11 +36,23 @@ try {
     foreach ($result as $p) {
         $product = $objectManager->create('Magento\Catalog\Model\Product')->load($p['entity_id']);
 
-        var_dump($product->debug()); die;
+        if(!$product) {
+
+            continue;
+        }
+
+        $color_main_id = $product->getColorMain();
+
+        if($color_main_id) {
+
+            @mkdir(dirname($swatchMediaPath.$product->getSwatchImage()), 0777, true);
+            copy($mediaPath.$product->getSwatchImage(), $swatchMediaPath.$product->getSwatchImage());
+
+            $sql =  "UPDATE `eav_attribute_option_swatch` SET `type`='2', `value`='{$product->getSwatchImage()}' WHERE (`option_id`= {$color_main_id})  LIMIT 1";
+            $connection->query($sql);
+        }
 
 
-
-        return;
         //Update Data into table
         $sql = "UPDATE `catalog_product_entity_varchar` SET `value`='{$p['value']}' WHERE attribute_id = 133 and entity_id  = '{$p['entity_id']}' LIMIT 1";
         $connection->query($sql);
