@@ -1,0 +1,2 @@
+##enable cache 
+bin/magento cache:enable config layout block_html collections reflection db_ddl compiled_config eav customer_notification config_integration config_integration_api full_page config_webservice translate  
