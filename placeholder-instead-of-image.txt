@@ -1,0 +1,4 @@
+delete `cpev_s`.* FROM `catalog_product_entity_varchar` `cpev_s` 
+JOIN `eav_attribute` `ea` ON `cpev_s`.`attribute_id` = `ea`.`attribute_id` 
+WHERE   `ea`.`attribute_code` IN ('image', 'small_image', 'thumbnail') 
+ AND `cpev_s`.`value` = 'no_selection';
