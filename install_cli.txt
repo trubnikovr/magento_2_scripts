@@ -8,7 +8,7 @@ php bin/magento setup:install \
 --admin-lastname="Yourname" \
 --admin-email="hello@example.co.uk" \
 --admin-user="admin" \
---admin-password="bE}`zqM=.fs^$`$m" \
+--admin-password="EO9FHPnTduBhOE5p" \
 --language="en_GB" \
 --currency="GBP" \
 --timezone="Europe/London" \
