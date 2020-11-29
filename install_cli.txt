@@ -1,16 +1,17 @@
-php bin/magento setup:install 
---base-url="http://example.co.uk/" 
---db-host="localhost" 
---db-name="databasename" 
---db-user="databaseuser" 
---db-password="databasepass" 
---admin-firstname="Yourname" 
---admin-lastname="Yourname" 
---admin-email="hello@example.co.uk" 
---admin-user="admin" 
---admin-password="setpasswordhere" 
---language="en_GB" 
---currency="GBP" 
---timezone="Europe/London" 
---use-rewrites="1" 
+php bin/magento setup:install \
+--base-url="http://example.co.uk/" \
+--db-host="localhost" \
+--db-name="databasename" \
+--db-user="databaseuser" \
+--db-password="databasepass" \
+--admin-firstname="Yourname" \
+--admin-lastname="Yourname" \
+--admin-email="hello@example.co.uk" \
+--admin-user="admin" \
+--admin-password="bE}`zqM=.fs^$`$m" \
+--language="en_GB" \
+--currency="GBP" \
+--timezone="Europe/London" \
+--use-rewrites="1" \
 --backend-frontname="admin"
+
