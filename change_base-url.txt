@@ -1,2 +1,2 @@
-php bin/magento setup:store-config:set --base-url="ft.loc"
-php bin/magento setup:store-config:set --base-url-secure="ft.loc"
+php bin/magento setup:store-config:set --base-url="http://www.test.loc"
+php bin/magento setup:store-config:set --base-url-secure="https://www.test.loc"
