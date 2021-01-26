@@ -1,2 +1,3 @@
 php bin/magento setup:store-config:set --base-url="http://www.test.loc"
 php bin/magento setup:store-config:set --base-url-secure="https://www.test.loc"
+php bin/magento setup:store-config:set --use-secure-admin=0
