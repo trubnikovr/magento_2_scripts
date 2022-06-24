@@ -14,4 +14,4 @@ php bin/magento setup:install \
 --timezone="Europe/London" \
 --use-rewrites="1" \
 --backend-frontname="admin"
---search-engine=elasticsearch7
+--search-engine=elasticsearch6
